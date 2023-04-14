@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "./components/HelloWorld.vue";
-const workspaceId = ref("whatever...");
+const workspaceId = ref("smile-for-me");
 </script>
 
 <template>
@@ -23,7 +23,7 @@ const workspaceId = ref("whatever...");
         <RouterLink to="/about">About</RouterLink>
       </nav>
       <nav>
-        <RouterLink to="/">Default</RouterLink>
+        <RouterLink to="/">Welcome</RouterLink>
         <input v-model="workspaceId" />
         <Button
           @click="

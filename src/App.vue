@@ -1,11 +1,19 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from "vue";
+import { RouterLink, RouterView } from "vue-router";
+import HelloWorld from "./components/HelloWorld.vue";
+const workspaceId = ref("whatever...");
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="@/assets/logo.svg"
+      width="125"
+      height="125"
+    />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
@@ -13,6 +21,20 @@ import HelloWorld from './components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+      </nav>
+      <nav>
+        <RouterLink to="/">Default</RouterLink>
+        <input v-model="workspaceId" />
+        <Button
+          @click="
+            () =>
+              $router.push({
+                name: 'home.workspace',
+                params: { workspaceId },
+              })
+          "
+          >Go to route</Button
+        >
       </nav>
     </div>
   </header>
